@@ -46,6 +46,7 @@ public class CustomerServiceRepScores
     // repeating until all 20 spots are filled.  Once this happens, the counter resets, and the 1st score is replaced by the 21st,
     // then the 2nd place gets the 22nd score.  This way a record of the 20 most recent scores is recorded.
     
+    boolean goodScore = (getAverageScoreForRep(int repID) >= 2.5);
     int counter = averageCounter[repID];
     this.averages[repID][counter] = score;
     if(counter < 20)
