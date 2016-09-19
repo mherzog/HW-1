@@ -5,7 +5,7 @@ public class CustomerServiceRepScores
   private int rangeOfAverage;
   private int[][] scores;
   private int[][] averages;
-  private int[] averageCounter
+  private int[] averageCounter;
   public CustomerServiceRepScores(int repQuantity, int scoreQuantity, int averageAmt)
   {
     this.repQuantity = repQuantity;
