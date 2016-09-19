@@ -34,6 +34,7 @@ public class CustomerServiceRepScores
   public void addNewScore(int repID, int score)
   {
     this.scores[repID][score-1] += 1;
+    updateAverage(repID, score);
   }
   /**
   * @param repID the id of the rep
@@ -58,6 +59,8 @@ public class CustomerServiceRepScores
     else
     {
       // Something weird happened
+      print "uh-oh"
+      // I need to review exceptions
     }
   }  
   /**
