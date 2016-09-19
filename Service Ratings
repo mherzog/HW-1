@@ -74,4 +74,15 @@ public class CustomerServiceRepScores
   {
     return Arrays.copyOf(this.scores[repID],this.scores[repID].length);
   }
+  
+  public double getAverageScoreForRep(int repID)
+  {
+    double sum = 0
+    for(i = 0; i < averagesToReturn.length; i++)
+    {
+      sum += double(this.averages[repID][i]);
+    }
+    double average = sum/averagesToReturn.length;
+    return average;
+  }
 }
