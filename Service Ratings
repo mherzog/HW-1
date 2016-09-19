@@ -5,6 +5,7 @@ public class CustomerServiceRepScores
   private int rangeOfAverage;
   private int[][] scores;
   private int[][] averages;
+  private int[] averageCounter
   public CustomerServiceRepScores(int repQuantity, int scoreQuantity, int averageAmt)
   {
     this.repQuantity = repQuantity;
@@ -13,10 +14,16 @@ public class CustomerServiceRepScores
     this.scores = new
     int[this.repQuantity][this.numberOfPossibleScores];
     this.averages = new int[this.repQuantity][this.rangeOfAverage];
+    this.averageCounter = new int[this.repQuantity]
     //initialize all score counts to zero
     for(int i = 0; i < this.scores.length; i++)
     {
       Arrays.fill(this.scores[i],0);
+    }
+    //initialize all average counters to 0
+    for(int i = 0; i < this.averageCounter.length; i++)
+    {
+      Arrays.fill(this.AverageCounter[i],0);
     }
   }
   /**
@@ -32,9 +39,26 @@ public class CustomerServiceRepScores
   * @param repID the id of the rep
   * @param score the score that is being added to the array
   */
-  
   public void updateAverage(int repID, int score)
   {
+    //The goal here is to maintain an array of 20 score placeholders.  One is filled, then the next down the line, then the next,
+    // repeating until all 20 spots are filled.  Once this happens, the counter resets, and the 1st score is replaced by the 21st,
+    // then the 2nd place gets the 22nd score.  This way a record of the 20 most recent scores is recorded.
+    
+    int counter = averageCounter[repID];
+    this.averages[repID][counter] = score;
+    if(counter < 20)
+    {
+      this.averageCounter[repID] += 1;
+    }
+    elif(counter == 20)
+    {
+      this.averageCounter[reID] = 0;
+    }
+    else
+    {
+      // Something weird happened
+    }
   }  
   /**
   *
